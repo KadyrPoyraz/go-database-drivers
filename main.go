@@ -4,12 +4,16 @@ import (
 	"context"
 	"fmt"
 	"github.com/jackc/pgx/v4"
+    "go-database-drivers/insert"
 )
 
 func main() {
 	// urlExample := "postgres://username:password@localhost:5432/database_name"
-	databaseUrl := "postgres://username:password@localhost:6969/db"
-	conn, err := pgx.Connect(context.Background(), databaseUrl)
+    ctx := context.Background()
+	databaseUrl := "postgres://username:password@localhost:5432/db"
+	conn, err := pgx.Connect(ctx, databaseUrl)
+
+    insert.InsertTest(conn, ctx)
 
 	// Send the query to the server. The returned rows MUST be closed
 	// before conn can be used again.
