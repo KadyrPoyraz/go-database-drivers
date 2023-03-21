@@ -1,6 +1,6 @@
 -- +goose Up
 CREATE TABLE test_table (
-    id INT NOT NULL,
+    id SERIAL NOT NULL,
     name VARCHAR(255),
     weight INTEGER,
     PRIMARY KEY(id)
